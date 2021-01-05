@@ -1,0 +1,105 @@
+body,
+html {
+    margin: 0;
+    background-image: linear-gradient(45deg, #be2edd, #686de0, #be2edd);
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#memory-board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 850px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px double #130f40;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.memory-card {
+    position: relative;
+    width: calc(20% - 10px);
+    height: calc(25% - 10px);
+    margin: 5px;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.memory-card:active {
+    transform: scale(.97);
+    transition: transform .3s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.back-face,
+.front-face {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+#message {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    text-align: center;
+    transform: scale(0);
+    transition: transform .5s;
+}
+
+h1 {
+    color: white;
+    text-shadow: 2px 2px 4px #e056fd;
+    font-size: 4rem;
+    letter-spacing: 5px;
+    margin: 15% 0 2rem;
+}
+
+.reset-game {
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background-color: white;
+    border: 2px solid #e056fd;
+    box-shadow: 0 0 15px #e056fd, inset 0 0 10px #e056fd;
+    border-radius: 5px;
+}
+
+.reset-game:hover {
+    background-color: #e056fd;
+    color: white;
+}
+
+@media only screen and (max-width: 900px) {
+    #memory-board {
+        width: 95%;
+    }
+
+    .memory-card {
+    width: calc(25% - 10px);
+    height: calc(20% - 10px);
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #memory-board {
+        height: 75%;
+    }
+}
