@@ -76,7 +76,8 @@ function unFlipCards() {
 };
 
 function resetBoard() {
-    [isFlipped, lockBoard] = [false, false]; //  ES6 destructuring
+    //  ES6 destructuring
+    [isFlipped, lockBoard] = [false, false]; 
     [firstCard, secondCard] = [null, null];
 };
 
@@ -87,6 +88,7 @@ function shuffle() {
     });
 }; 
 shuffle();
+
 // function wrapped in () and then followed by (), means that, that is immediately invoked function, after it's definition
 
 function checkAllFlipped() {
